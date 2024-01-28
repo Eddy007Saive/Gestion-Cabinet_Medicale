@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajoit Forme{% endblock %}
+
+{% block body %}
+    <h1>Nouveau</h1>
+
+    {{ include('forme/_form.html.twig') }}
+
+    <a href="{{ path('app_forme_index') }}">Retour</a>
+{% endblock %}

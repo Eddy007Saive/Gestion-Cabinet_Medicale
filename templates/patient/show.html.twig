@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+  {% block stylesheets %}
+        <link rel="stylesheet" href="/assets/css/docteurs.css">
+{% endblock %}
+{% block bg %}
+    
+    style="background-image: url('/uploads/media/9650622_7774.jpg');background-size: cover;"
+{% endblock %}
+{% block body %}
+<div class="container-fluid d-flex justify-content-center w-100  align-items-center  " style="height: 100vh;">
+    <div class=" w-50 h-75 row shadow-lg ">
+        <div class="div col-lg-4 ">
+            <div class="card-img w-100">
+                <img src="{{patient.getImageUrl}}" alt="" class="w-100 img-fluid" style="height: 200px;object-fit: contain;">
+               </div>
+        </div>
+        
+        <div class="div col bg-white showdoc  ">
+            <div class="card-title text-center ">
+                <label for="">Nom et prénom</label>
+                <input type="text" readonly class="form-control " value="{{patient.NOM}} {{patient.PRENOM}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Adresse</label>
+                <input type="text" readonly class="form-control" value="{{patient.ADRESSE}}">    
+            </div>
+            
+            <div class="card-title text-center ">
+                <label for="">Telephone</label>
+                <input type="text" readonly class="form-control" value="{{telephone}}">    
+            </div>
+        </div>
+
+     </div>
+</div>
+  
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block bg %}
+    
+    style="background-image: url('/uploads/media/9650622_7774.jpg');background-size: cover;"
+{% endblock %}
+{% block body %}
+<h1 class="w-100 text-center"> Patient</h1>
+<a href=" {{path('app_patient.new')}} " class="btn btn-primary m-4">Nouveau</a>
+    <table class="table ">
+        <thead class="text-center">
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Adresse</th>
+            <th>Action</th>
+        </thead>
+        <tbody class="text-center">
+        {% for Patient in Patients %}
+            <tr>
+                <td>{{Patient.id}}</td>
+                <td>{{Patient.NOM}}</td>
+                <td>{{Patient.PRENOM}} </td>
+                <td>{{Patient.ADRESSE}} </td>
+                <td class="d-flex gap-4 justify-content-center">
+                    <a class="btn btn-success" href="{{ path('app_patient.show', {'id':Patient.id}) }}">Voir</a>
+                    <a class="btn btn-warning" href="{{ path('app_patient.modify', {'id':Patient.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

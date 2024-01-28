@@ -1,0 +1,53 @@
+{% extends 'medicament/index.html.twig' %}
+
+{% block contenu %}
+<div class="container-fluid d-flex justify-content-center w-100  align-items-center  " style="height: 100vh;">
+    <div class=" w-100 row shadow-lg ">
+        <div class="div col-lg-4 ">
+            <div class="card-img w-100">
+                <img src="{{medicament.getImageUrl}}" alt="" class="w-100 img-fluid" style="height: 200px;object-fit: contain;">
+               </div>
+        </div>
+        
+        <div class="div col-lg-6 bg-white showMedi  ">
+            <div class="card-title text-center ">
+                <label for="">Nom du médicament</label>
+                <input type="text" readonly class="form-control " value="{{medicament.NOM}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Date d'expiration</label>
+                <input type="text" readonly class="form-control" value="{{medicament.getDATEEXP|date('Y-m-d')|date('j F Y', 'Europe/Paris')}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Date de fabrication</label>
+                <input type="text" readonly class="form-control" value="{{medicament.getDATEFAB|date('Y-m-d')|date('j F Y', 'Europe/Paris')}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Forme</label>
+                <input type="text" readonly class="form-control" value="{{medicament.getIDFORME}}">    
+            </div>
+
+             <div class="card-title text-center ">
+                <label for="">Dosage</label>
+                <input type="text" readonly class="form-control" value="{{medicament.Dosage}}">    
+            </div>
+
+            <div class="card-title text-center ">
+                <label for="">Ingrédient</label>
+                <input type="text" readonly class="form-control" value="{{medicament.INGREDIENT}}">    
+            </div>
+
+             <div class="card-title text-center ">
+                <label for="">Prix en Ariary</label>
+                <input type="text" readonly class="form-control" value="{{medicament.PRIX}}">    
+            </div>
+             <div class="card-title text-center ">
+                <label for="">Quantité</label>
+                <input type="text" readonly class="form-control" value="{{medicament.QT}}">    
+            </div>
+        </div>
+
+     </div>
+</div>
+  
+{% endblock %}

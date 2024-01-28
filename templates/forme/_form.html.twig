@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    <label for="" class="form-label"> Type de Forme</label>
+    {{ form_widget(form.FORME) }}
+    {{ form_errors(form.FORME) }}
+    <button class="btn btn-primary mt-4">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

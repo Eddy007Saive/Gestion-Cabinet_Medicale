@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forme Medicament{% endblock %}
+
+{% block body %}
+    <h1>Forme index</h1>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FORME</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for forme in formes %}
+            <tr>
+                <td>{{ forme.id }}</td>
+                <td>{{ forme.FORME }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_forme_edit', {'id': forme.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_forme_new') }}">Create new</a>
+{% endblock %}

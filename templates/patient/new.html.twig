@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="/assets/css/docteurs.css">
+{% endblock %}
+{% block bg %}
+    
+    style="background-image: url('/uploads/media/9650622_7774.jpg');background-size: cover;"
+{% endblock %}
+{% block body %}
+{# Tester si un variable medecin existe #}
+{% if patient is defined %}
+    <h1 class="w-100 text-center">Modification Patient</h1>
+    <hr>
+    {% else %}
+    <h2 class="w-100 text-end">Ajout Patient</h2>
+    <hr>
+{% endif %}
+
+<div class="container-fluid row">
+    <div class="image col-lg-4">
+        <img  id="image" src="{% if medecin is defined %} {{patient.getImageUrl }}{% else %} {% endif %}" alt="" class="img-fluid">
+    </div>
+    <div class="col-lg-8  bg-white p-3 rounded-2 shadow-lg">
+    {{ form_start(form) }}
+        {{ form(form) }}
+        {{ form_end(form) }}
+    {{ form_end(form) }}        
+    </div>
+
+</div>
+{% endblock %} 

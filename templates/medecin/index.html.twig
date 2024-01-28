@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block bg %}
+    style="background-image: url('/uploads/media/vue-arriere-plan-abstraite-abstraite-interieur-regardant-vers-bureau-vide-portes-entree-mur-rideau-verre-cadre.jpg');background-size: cover;"
+{% endblock %}
+{% block body %}
+<h1 class="w-100 text-center"> Medecin</h1>
+<div class="d-flex justify-content-space-between w-100 ">
+    <a href=" {{path('app_medecin.new')}} " class="btn btn-success m-4">Nouveau</a>
+    <a href=" {{path('app_specialite_index')}} " class="btn btn-warning  m-4">Ajout Spécilité</a>
+
+</div>
+    <table class="table ">
+        <thead class="text-center">
+            <th>Matricule</th>
+            <th>Docteur</th>
+            <th>Spécialité</th>
+            <th>Adresse</th>
+            <th>Action</th>
+        </thead>
+        <tbody class="text-center">
+        {% for medecin in medecins %}
+            <tr>
+                <td>{{medecin.id}}</td>
+                <td>{{medecin.NOM}} <span>{{medecin.PRENOM}}</span> </td>
+                <td>{{medecin.SPECIALITE}} </td>
+                <td>{{medecin.ADRESSE}} </td>
+                <td class="d-flex gap-4 justify-content-center">
+                    <a class="btn btn-success" href="{{ path('app_medecin.show', {'id':medecin.id}) }}">Voir</a>
+                    <a class="btn btn-warning" href="{{ path('app_specialite.modify', {'id':medecin.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

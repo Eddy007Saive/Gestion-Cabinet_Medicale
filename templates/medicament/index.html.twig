@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block bg %}
+    style="background-image: url('/uploads/media/vue-dessus-assortiment-pilules-espace-copie.jpg');background-size: cover;"
+{% endblock %}
+
+{% block body %}
+{% block contenu %}
+    
+
+<h1 class="w-100 text-center"> Médicament </h1>
+
+<a href=" {{path('app_medicament.new')}} " class="btn btn-success m-4">Nouveau</a>
+    <table class="table ">
+        <thead class="text-center">
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Date de Expiration</th>
+            <th>Action</th>
+
+
+        </thead>
+        <tbody class="text-center">
+        {% for medicament in medicaments %}
+            <tr>
+                <td>{{medicament.NOM}}</td>
+                <td>{{medicament.PRIX}}</td>
+                <td>{{medicament.QT}} </td>
+                <td>{{medicament.getDATEEXP|date('Y-m-d')|date('j F Y', 'Europe/Paris') }} </td>
+
+                <td class="d-flex gap-4 justify-content-center">
+                    <a class="btn btn-success" href="{{ path('app_medicament.show', {'id':medicament.id}) }}">Voir</a>
+                    <a class="btn btn-warning" href="{{ path('app_patient.modify', {'id':medicament.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    {% endblock %}
+{% endblock %}

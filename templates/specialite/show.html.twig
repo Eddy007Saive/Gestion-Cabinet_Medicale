@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Specialite{% endblock %}
+
+{% block body %}
+    <h1>Specialite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ specialite.id }}</td>
+            </tr>
+            <tr>
+                <th>SPECIALITE</th>
+                <td>{{ specialite.SPECIALITE }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex">
+        <a href="{{ path('app_specialite_index') }}" class="btn btn-primary">Retour</a>
+        <a href="{{ path('app_specialite_edit', {'id': specialite.id}) }}" class="btn btn-warning">Modifier</a>
+    </div>
+ 
+{% endblock %}

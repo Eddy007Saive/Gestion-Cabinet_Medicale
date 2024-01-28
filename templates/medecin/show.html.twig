@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block bg %}
+    style="background-image: url('/uploads/media/vue-arriere-plan-abstraite-abstraite-interieur-regardant-vers-bureau-vide-portes-entree-mur-rideau-verre-cadre.jpg');background-size: cover;"
+{% endblock %}
+  {% block stylesheets %}
+        <link rel="stylesheet" href="/assets/css/docteurs.css">
+{% endblock %}
+{% block body %}
+<div class="container-fluid d-flex justify-content-center w-100  align-items-center " style="height: 100vh;">
+    <div class=" w-50 h-75 row shadow-lg rounded-2 ">
+        <div class="div col-lg-4 ">
+            <div class="card-img w-100">
+                <img src="{{medecin.getImageUrl}}" alt="" class="w-100 img-fluid" style="height: 200px;object-fit: contain;">
+               </div>
+        </div>
+        
+        <div class="div col bg-white showdoc  ">
+            <div class="card-title text-center ">
+                <label for="">Nom et prénom</label>
+                <input type="text" readonly class="form-control " value="{{medecin.NOM}} {{medecin.PRENOM}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Adresse</label>
+                <input type="text" readonly class="form-control" value="{{medecin.ADRESSE}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Spécialité</label>
+                <input type="text" readonly class="form-control" value="{{medecin.SPECIALITE}}">    
+            </div>
+            <div class="card-title text-center ">
+                <label for="">Telephone</label>
+                <input type="text" readonly class="form-control" value="{{telephone}}">    
+            </div>
+        </div>
+
+     </div>
+</div>
+  
+{% endblock %}
